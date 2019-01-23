@@ -3,8 +3,12 @@ def bubble_sort(sort_list):
 
     for i in range(len(sort_list)):
 
+        swapped = False
+
         j = 0
         k = len(sort_list) - (i + 1)
+
+        print(sort_list)
 
         while j < k:
 
@@ -13,7 +17,12 @@ def bubble_sort(sort_list):
                 sort_list[j] = sort_list[j+1]
                 sort_list[j+1] = temp_var
 
+                swapped = True
+
             j += 1
+
+        if swapped is False:
+            break
 
     return sort_list
 
