@@ -27,4 +27,3 @@ def binary_search(target_num, searched_list):
         print('target exists at the {} position of the list.'.format(str(result+1)))
 
 
-
