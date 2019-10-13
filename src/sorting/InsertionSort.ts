@@ -1,3 +1,5 @@
+import { Shift } from "./Utilities";
+
 function InsertionSort<T>(arr: T[]): void {
   for (let i = 0; i < arr.length; i++) {
     let smallestElementIndex = i;
@@ -8,14 +10,6 @@ function InsertionSort<T>(arr: T[]): void {
     }
     Shift(arr, smallestElementIndex, i);
   }
-}
-
-function Shift<T>(arr: T[], shiftIndex: number, to: number): void {
-  let temp = arr[shiftIndex];
-  for (let i = shiftIndex; to < i; i--) {
-    arr[i] = arr[i - 1];
-  }
-  arr[to] = temp;
 }
 
 describe("InsertionSort", () => {
