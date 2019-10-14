@@ -1,16 +1,14 @@
 function MergeSort<T>(arr: T[]): T[] {
-  if (arr.length <= 1) {
-    return arr;
-  }
+  if (arr.length <= 1) return arr;
 
   const middle = Math.floor(arr.length / 2);
   const left = MergeSort([...arr.slice(0, middle)]);
   const right = MergeSort([...arr.slice(middle)]);
 
-  return marge(left, right);
+  return sortMerge(left, right);
 }
 
-function marge<T>(left: T[], right: T[]): T[] {
+function sortMerge<T>(left: T[], right: T[]): T[] {
   const mergedArr = [];
   let i = 0;
   let j = 0;
@@ -34,7 +32,7 @@ function marge<T>(left: T[], right: T[]): T[] {
   return mergedArr;
 }
 
-describe("MargeSort", () => {
+describe("MergeSort", () => {
   test("#1", () => {
     const numberArray = [1, 4, 12, 67, 3, 98, 1001, 55, 34];
     expect(MergeSort(numberArray)).toEqual([1, 3, 4, 12, 34, 55, 67, 98, 1001]);
