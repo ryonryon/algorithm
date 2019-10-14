@@ -7,5 +7,9 @@
 ![Insertion Sort](https://user-images.githubusercontent.com/35892492/66712280-3215ce80-ed4f-11e9-83df-7861f5153fd0.jpg)
 
 ## Marge Sort
-### merge sort has to merge with sort order.
-![Merge Sort](https://user-images.githubusercontent.com/35892492/66712442-8c179380-ed51-11e9-8ee1-d75895c3ed23.jpg)
+
+![Merge sort](https://user-images.githubusercontent.com/35892492/66772429-929d2c80-ee71-11e9-9880-bf3ad366e8c9.jpg)
+
+## Quick Sort
+
+![Quick Sort](https://user-images.githubusercontent.com/35892492/66784662-f898ac80-ee8f-11e9-94ee-3864df6c781a.jpg)
