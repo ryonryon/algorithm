@@ -9,10 +9,10 @@ function breadthFirstSearch<T>(
   queue.enqueue(tree);
 
   while (0 < queue.size()) {
-    const node: TreeNode<T> = queue.dequeue();
-    if (node.value === target) return node;
-    if (node.left) queue.enqueue(node.left);
-    if (node.right) queue.enqueue(node.right);
+    const node: TreeNode<T> | undefined = queue.dequeue();
+    if (node!.value === target) return node!;
+    if (node!.left) queue.enqueue(node!.left);
+    if (node!.right) queue.enqueue(node!.right);
   }
 
   return null;
