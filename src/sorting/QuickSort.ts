@@ -37,3 +37,5 @@ describe("QuickSort", () => {
     ]);
   });
 });
+
+export default QuickSort;

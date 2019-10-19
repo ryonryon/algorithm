@@ -16,6 +16,10 @@ class Queue<T> {
   leek(): T | null {
     return this._data[0];
   }
+
+  isEmpty(): boolean {
+    return this._data.length === 0;
+  }
 }
 
 export default Queue;

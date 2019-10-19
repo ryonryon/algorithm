@@ -8,7 +8,7 @@ function breadthFirstSearch<T>(
   const queue = new Queue<TreeNode<T>>();
   queue.enqueue(tree);
 
-  while (0 < queue.size()) {
+  while (!queue.isEmpty()) {
     const node: TreeNode<T> | undefined = queue.dequeue();
     if (node!.value === target) return node!;
     if (node!.left) queue.enqueue(node!.left);
