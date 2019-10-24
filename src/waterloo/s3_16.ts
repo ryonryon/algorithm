@@ -1,32 +1,74 @@
-import StoreAdjacencyList from "../graph/StoreAdjacencyList";
-
 function PhonomenalReviews(
-  phoRestaurants: string[],
-  restaurantList: string[][]
+  restaurantLength: number,
+  phoRestaurants: Set<number>,
+  edges: [number, number][]
 ): number {
-  let minimumPhoRoute = 0;
-  const adjacencyList: Map<string, string[]> = StoreAdjacencyList(
-    restaurantList
-  );
+  let minimum = Infinity;
+  const edgesEachRestaurant = new Map<number, number[]>();
 
-  for (let i = 0; i < phoRestaurants.length; i++) {}
+  function traverse(
+    restaurant: number,
+    from: number | null
+  ): [number, boolean] {
+    const nextRestaurants = edgesEachRestaurant
+      .get(restaurant)!
+      .filter(res => res !== from);
+    let includesPho = phoRestaurants.has(restaurant);
+    let lengths: number[] = [];
+
+    for (const nextRestaurant of nextRestaurants) {
+      const [length, nextIncludesPho] = traverse(nextRestaurant, restaurant);
+
+      includesPho = includesPho || nextIncludesPho;
+
+      if (nextIncludesPho) {
+        lengths.push(length);
+      }
+    }
+
+    let lengthSum = 1;
+
+    for (const length of lengths) {
+      lengthSum += length * 2;
+    }
+
+    lengthSum -= Math.max(0, ...lengths);
+
+    return [lengthSum, includesPho];
+  }
+
+  for (let i = 0; i < restaurantLength; ++i) {
+    edgesEachRestaurant.set(i, []);
+  }
+
+  for (const edge of edges) {
+    edgesEachRestaurant.get(edge[0])!.push(edge[1]);
+    edgesEachRestaurant.get(edge[1])!.push(edge[0]);
+  }
+
+  for (const start of phoRestaurants) {
+    const [length, includesPho] = traverse(start, null);
+
+    if (includesPho) {
+      minimum = Math.min(minimum, length - 1);
+    }
+  }
+
+  return minimum;
 }
 
 describe("PhonomenalReviews", () => {
   test("#1", () => {
     expect(
-      PhonomenalReviews(
-        ["5", "2"],
-        [
-          ["0", "1"],
-          ["0", "2"],
-          ["2", "3"],
-          ["4", "3"],
-          ["6", "1"],
-          ["1", "5"],
-          ["7", "3"]
-        ]
-      )
+      PhonomenalReviews(8, new Set([5, 2]), [
+        [0, 1],
+        [0, 2],
+        [2, 3],
+        [4, 3],
+        [6, 1],
+        [1, 5],
+        [7, 3]
+      ])
     ).toBe(3);
   });
 });
