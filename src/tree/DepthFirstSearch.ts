@@ -1,4 +1,4 @@
-import TreeNode from "./TreeNode";
+import TreeNode from "../util/TreeNode";
 
 function depthFirstSearch<T>(tree: TreeNode<T>, target: T): TreeNode<T> | null {
   if (tree.value == target) return tree;

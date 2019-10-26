@@ -6,7 +6,8 @@ function BalancedTrees(num: number): number {
 
     for (let i = 2; i <= n; i++) {
       let val = 0;
-      for (let j = i; 1 < j; j--) { // sqrt
+      for (let j = i; 1 < j; j--) {
+        // sqrt
         val = val + memo.get(Math.floor(i / j))!;
       }
       memo.set(i, val);

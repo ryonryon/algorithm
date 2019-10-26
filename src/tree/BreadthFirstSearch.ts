@@ -1,5 +1,5 @@
-import TreeNode from "./TreeNode";
-import Queue from "./Queue";
+import TreeNode from "../util/TreeNode";
+import Queue from "../util/Queue";
 
 function breadthFirstSearch<T>(
   tree: TreeNode<T>,

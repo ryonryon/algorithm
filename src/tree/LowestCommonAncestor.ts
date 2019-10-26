@@ -1,4 +1,4 @@
-import TreeNode from "./TreeNode";
+import TreeNode from "../util/TreeNode";
 
 function lowestCommonAncestor<T>(
   root: TreeNode<T> | null,
