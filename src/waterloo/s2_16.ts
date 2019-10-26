@@ -45,4 +45,9 @@ describe("TandemBicycle", () => {
       TandemBicycle("2", 5, [202, 177, 189, 589, 102], [17, 78, 1, 496, 540])
     ).toBe(2016);
   });
+  test("#4", () => {
+    expect(
+      TandemBicycle("2", 1, [69067], [834768])
+    ).toBe(834768);
+  });
 });
