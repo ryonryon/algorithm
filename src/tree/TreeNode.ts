@@ -14,4 +14,15 @@ class TreeNode<T> {
   }
 }
 
+describe("treenode", () => {
+  test("#1", () => {
+    const treeNode = new TreeNode<string>("test");
+
+    expect(treeNode.value).toBe("test");
+    expect(treeNode.left).toBeNull;
+
+    expect(treeNode.right).toBeNull;
+  });
+});
+
 export default TreeNode;

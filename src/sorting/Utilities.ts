@@ -11,3 +11,16 @@ export function Shift<T>(arr: T[], shiftIndex: number, to: number): void {
   }
   arr[to] = temp;
 }
+
+describe("Utilities", () => {
+  test("Swap #1", () => {
+    const testArr = [1, 2 , 3, 4];
+    Swap(testArr, 0, 2);
+    expect(testArr).toEqual([3, 2, 1, 4]);
+  });
+  test("Shift #2", () => {
+    const testArr = [1, 2 , 3, 4];
+    Swap(testArr, 3, 1);
+    expect(testArr).toEqual([1, 4, 3, 2]);
+  });
+});
